@@ -59,7 +59,12 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			// 橙黄色系配色
+  			'host-tag': 'hsl(var(--host-tag))',
+  			'guest-tag': 'hsl(var(--guest-tag))',
+  			'status-success': 'hsl(var(--status-success))',
+  			'text-dark': 'hsl(var(--text-dark))'
   		},
   		keyframes: {
   			'accordion-down': {

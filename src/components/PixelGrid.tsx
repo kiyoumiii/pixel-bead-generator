@@ -74,12 +74,13 @@ export function PixelGrid({
   };
 
   return (
-    <div className={`border rounded-lg bg-white ${isFullscreen ? 'fixed inset-0 z-50 bg-white' : ''}`}>
-      <div className="flex justify-between items-center p-2 border-b">
-        <h3 className="font-medium">图纸预览</h3>
+    <div className={`border rounded-lg bg-background ${isFullscreen ? 'fixed inset-0 z-50 bg-background' : ''}`} style={{ borderColor: 'hsl(var(--border))' }}>
+      <div className="flex justify-between items-center p-2 border-b" style={{ borderColor: 'hsl(var(--border))' }}>
+        <h3 className="font-medium" style={{ color: 'hsl(var(--foreground))' }}>图纸预览</h3>
         <button
           onClick={toggleFullscreen}
-          className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+          className="px-2 py-1 text-xs bg-secondary hover:bg-secondary/80 rounded"
+          style={{ backgroundColor: 'hsl(var(--secondary))', color: 'hsl(var(--secondary-foreground))' }}
         >
           {isFullscreen ? '退出全屏' : '全屏查看'}
         </button>
@@ -92,7 +93,8 @@ export function PixelGrid({
         {isFullscreen && (
           <button
             onClick={toggleFullscreen}
-            className="absolute top-2 right-2 w-8 h-8 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center hover:bg-opacity-75"
+            className="absolute top-2 right-2 w-8 h-8 bg-primary bg-opacity-50 text-primary-foreground rounded-full flex items-center justify-center hover:bg-opacity-75"
+            style={{ backgroundColor: 'hsl(var(--primary))', color: 'hsl(var(--primary-foreground))' }}
           >
             ✕
           </button>
@@ -120,22 +122,23 @@ export function ColorPalette({ symbolMap }: ColorPaletteProps) {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-sm font-semibold">颜色图例</h3>
+      <h3 className="text-sm font-semibold" style={{ color: 'hsl(var(--foreground))' }}>颜色图例</h3>
       <div className="grid grid-cols-4 gap-2">
         {colors.map((color, idx) => (
           <div
             key={idx}
             className="flex items-center gap-2 p-2 border rounded text-xs"
+            style={{ borderColor: 'hsl(var(--border))', backgroundColor: 'hsl(var(--card))', color: 'hsl(var(--foreground))' }}
           >
             <div
               className="w-6 h-6 rounded border"
-              style={{ backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})` }}
+              style={{ borderColor: 'hsl(var(--border))', backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})` }}
             />
-            <span className="font-mono font-bold">{color.symbol}</span>
+            <span className="font-mono font-bold" style={{ color: 'hsl(var(--foreground))' }}>{color.symbol}</span>
           </div>
         ))}
       </div>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs" style={{ color: 'hsl(var(--muted-foreground))' }}>
         共使用 {colors.length} 种颜色
       </p>
     </div>

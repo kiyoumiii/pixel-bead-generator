@@ -59,7 +59,7 @@ export function ImageUploader({ onImageLoad }: ImageUploaderProps) {
       <div
         className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
           dragActive
-            ? 'border-primary bg-primary/5'
+            ? 'border-primary bg-primary/10'
             : 'border-muted-foreground/25 hover:border-primary/50'
         }`}
         onDragEnter={handleDrag}
@@ -80,7 +80,8 @@ export function ImageUploader({ onImageLoad }: ImageUploaderProps) {
         />
         <Button
           type="button"
-          variant="outline"
+          variant="default"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground"
           onClick={() => fileInputRef.current?.click()}
         >
           选择图片
@@ -114,7 +115,7 @@ export function ParameterControls({
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="gridSize">
+        <Label htmlFor="gridSize" className="text-foreground">
           格子大小: {gridSize[0]} x {gridSize[0]}
         </Label>
         <div className="flex items-center gap-2">
@@ -140,7 +141,7 @@ export function ParameterControls({
                 setGridSize([value]);
               }
             }}
-            className="w-16 px-2 py-1 border rounded text-sm"
+            className="w-16 px-2 py-1 border rounded text-sm border-border bg-background text-foreground"
           />
         </div>
         <p className="text-xs text-muted-foreground">
@@ -149,7 +150,7 @@ export function ParameterControls({
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="colorCount">颜色数量: {colorCount[0]}</Label>
+        <Label htmlFor="colorCount" className="text-foreground">颜色数量: {colorCount[0]}</Label>
         <div className="flex items-center gap-2">
           <Slider
             id="colorCount"
@@ -173,7 +174,7 @@ export function ParameterControls({
                 setColorCount([value]);
               }
             }}
-            className="w-16 px-2 py-1 border rounded text-sm"
+            className="w-16 px-2 py-1 border rounded text-sm border-border bg-background text-foreground"
           />
         </div>
         <p className="text-xs text-muted-foreground">
@@ -183,24 +184,24 @@ export function ParameterControls({
 
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <Label htmlFor="showSymbols">显示符号</Label>
+          <Label htmlFor="showSymbols" className="text-foreground">显示符号</Label>
           <input
             id="showSymbols"
             type="checkbox"
             checked={showSymbols}
             onChange={(e) => setShowSymbols(e.target.checked)}
-            className="h-4 w-4"
+            className="h-4 w-4 rounded border-border bg-background text-primary"
           />
         </div>
 
         <div className="flex items-center justify-between">
-          <Label htmlFor="showGridLines">显示网格线</Label>
+          <Label htmlFor="showGridLines" className="text-foreground">显示网格线</Label>
           <input
             id="showGridLines"
             type="checkbox"
             checked={showGridLines}
             onChange={(e) => setShowGridLines(e.target.checked)}
-            className="h-4 w-4"
+            className="h-4 w-4 rounded border-border bg-background text-primary"
           />
         </div>
       </div>
@@ -217,11 +218,11 @@ interface ActionButtonsProps {
 export function ActionButtons({ onExport, onPrint, disabled }: ActionButtonsProps) {
   return (
     <div className="flex gap-2">
-      <Button onClick={onExport} disabled={disabled} variant="outline" className="flex-1">
+      <Button onClick={onExport} disabled={disabled} variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1">
         <Download className="mr-2 h-4 w-4" />
         导出图片
       </Button>
-      <Button onClick={onPrint} disabled={disabled} variant="outline" className="flex-1">
+      <Button onClick={onPrint} disabled={disabled} variant="default" className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1">
         <Printer className="mr-2 h-4 w-4" />
         打印图纸
       </Button>
