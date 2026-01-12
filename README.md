@@ -1,50 +1,113 @@
-# React + TypeScript + Vite
+# 拼豆图纸生成器
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Currently, two official plugins are available:
+一个将任意图片转换为拼豆、钻石画、十字绣图纸的在线工具。通过调节参数，您可以自定义生成的图纸效果。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 功能特点
 
-## Expanding the ESLint configuration
+- 📤 **图片上传**：支持拖拽上传或点击上传任意图片
+- 🎨 **参数调节**：可自定义格子大小和颜色数量
+- 🧩 **智能处理**：自动进行颜色量化和符号映射
+- 🖨️ **多种导出**：支持导出为PNG图片或直接打印
+- 📱 **响应式设计**：适配不同屏幕尺寸，支持移动端使用
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 使用方法
 
-- Configure the top-level `parserOptions` property like this:
+1. **上传图片**：将您想要转换的图片拖拽到上传区域，或点击"选择图片"上传
+2. **调节参数**：
+   - 格子大小：控制图纸的格子数量，数值越大格子越多
+   - 颜色数量：控制使用的颜色数量，颜色越多细节越丰富
+   - 显示符号：开启后会在格子中显示对应的颜色符号
+   - 显示网格线：开启后会显示格子的边框线
+3. **预览效果**：实时查看生成的拼豆图纸效果
+4. **导出图纸**：点击"导出图片"将图纸保存为PNG文件，或点击"打印图纸"直接打印
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 技术实现
+
+本项目基于React + TypeScript + Vite构建，使用了以下关键技术：
+
+- **Canvas API**：用于图像处理和绘制
+- **K-Means算法**：实现智能颜色量化
+- **Tailwind CSS**：提供现代化的UI样式
+- **Shadcn/ui**：提供高质量的React组件
+
+## 项目结构
+
+```
+src/
+├── components/          # React组件
+│   ├── ImageControls.tsx # 图片上传和参数控制组件
+│   └── PixelGrid.tsx     # 像素网格绘制组件
+├── utils/               # 工具函数
+│   └── imageProcessing.ts # 图像处理相关函数
+└── App.tsx             # 主应用组件
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 开发环境搭建
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. 克隆项目到本地：
+   ```bash
+   git clone https://github.com/kiyoumiii/pixel-bead-generator.git
+   cd pixel-bead-generator
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. 安装依赖：
+   ```bash
+   npm install
+   ```
+
+3. 启动开发服务器：
+   ```bash
+   npm run dev
+   ```
+
+4. 在浏览器中打开 http://localhost:5173 查看项目
+
+## 参数说明
+
+### 格子大小
+- 范围：10-100
+- 默认值：30
+- 影响：控制生成图纸的格子数量，数值越大生成的图纸越精细
+
+### 颜色数量
+- 范围：4-64
+- 默认值：16
+- 影响：控制使用的颜色数量，颜色越多细节越丰富，但也会增加制作难度
+
+### 显示符号
+- 开启：在每个格子中显示对应的颜色符号
+- 关闭：仅显示颜色，不显示符号
+
+### 显示网格线
+- 开启：显示格子的边框线
+- 关闭：不显示边框线，更接近实际的拼豆效果
+
+## 适用场景
+
+- **拼豆制作**：将照片转换为拼豆图纸
+- **钻石画制作**：生成钻石画的参考图案
+- **十字绣制作**：制作十字绣的底图
+- **手工制作**：为各种手工艺品提供设计参考
+
+## 浏览器兼容性
+
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
+
+## 许可证
+
+本项目采用MIT许可证，详情请见 [LICENSE](LICENSE) 文件。
+
+## 贡献
+
+欢迎提交Issue和Pull Request来改进这个项目！
+
+## 联系方式
+
+如有问题或建议，请通过以下方式联系：
+- 提交Issue：https://github.com/kiyoumiii/pixel-bead-generator/issues
+- 发送邮件：kiyoumiii@example.com
