@@ -71,16 +71,47 @@ export function quantizeColors(pixels: RGB[][], numColors: number): RGB[] {
   // 提取所有像素颜色
   const allColors = pixels.flat();
   
-  // 随机初始化中心点
-  let centroids: RGB[] = [];
-  const usedIndices = new Set<number>();
+  // 如果颜色数量大于总颜色数，直接返回所有颜色
+  if (numColors >= allColors.length) {
+    return [...allColors];
+  }
   
-  while (centroids.length < numColors && centroids.length < allColors.length) {
-    const idx = Math.floor(Math.random() * allColors.length);
-    if (!usedIndices.has(idx)) {
-      usedIndices.add(idx);
-      centroids.push({ ...allColors[idx] });
+  // 使用更稳定的初始化方法
+  let centroids: RGB[] = [];
+  
+  // 使用 K-Means++ 初始化方法
+  // 选择第一个中心点
+  centroids.push({ ...allColors[Math.floor(Math.random() * allColors.length)] });
+  
+  // 选择剩余的中心点
+  for (let i = 1; i < numColors; i++) {
+    // 计算每个颜色到最近中心点的距离
+    const distances = allColors.map(color => {
+      let minDist = Infinity;
+      for (const centroid of centroids) {
+        const dist = colorDistance(color, centroid);
+        if (dist < minDist) {
+          minDist = dist;
+        }
+      }
+      return minDist;
+    });
+    
+    // 根据距离概率选择下一个中心点
+    const totalDistance = distances.reduce((sum, dist) => sum + dist, 0);
+    const randomValue = Math.random() * totalDistance;
+    
+    let cumulativeDistance = 0;
+    let nextCentroidIndex = 0;
+    for (let j = 0; j < distances.length; j++) {
+      cumulativeDistance += distances[j];
+      if (randomValue <= cumulativeDistance) {
+        nextCentroidIndex = j;
+        break;
+      }
     }
+    
+    centroids.push({ ...allColors[nextCentroidIndex] });
   }
   
   // K-Means 迭代
@@ -108,7 +139,8 @@ export function quantizeColors(pixels: RGB[][], numColors: number): RGB[] {
     const newCentroids: RGB[] = [];
     for (const cluster of clusters) {
       if (cluster.length === 0) {
-        newCentroids.push({ ...centroids[clusters.indexOf(cluster)] });
+        // 如果某个聚类为空，随机选择一个颜色作为中心点
+        newCentroids.push({ ...allColors[Math.floor(Math.random() * allColors.length)] });
         continue;
       }
       
