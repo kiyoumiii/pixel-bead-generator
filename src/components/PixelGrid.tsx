@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { RGB } from '@/utils/imageProcessing';
 
 interface PixelGridProps {
@@ -17,6 +17,7 @@ export function PixelGrid({
   cellSize = 20,
 }: PixelGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     if (!canvasRef.current || pixels.length === 0) return;
@@ -68,9 +69,35 @@ export function PixelGrid({
     }
   }, [pixels, symbolMap, showSymbols, showGridLines, cellSize]);
 
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
   return (
-    <div className="overflow-auto border rounded-lg bg-white">
-      <canvas ref={canvasRef} className="block" />
+    <div className={`border rounded-lg bg-white ${isFullscreen ? 'fixed inset-0 z-50 bg-white' : ''}`}>
+      <div className="flex justify-between items-center p-2 border-b">
+        <h3 className="font-medium">图纸预览</h3>
+        <button
+          onClick={toggleFullscreen}
+          className="px-2 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded"
+        >
+          {isFullscreen ? '退出全屏' : '全屏查看'}
+        </button>
+      </div>
+      <div className={`relative ${isFullscreen ? 'h-full w-full' : 'overflow-auto'}`}>
+        <canvas 
+          ref={canvasRef} 
+          className={`block ${isFullscreen ? 'h-full w-full object-contain' : ''}`} 
+        />
+        {isFullscreen && (
+          <button
+            onClick={toggleFullscreen}
+            className="absolute top-2 right-2 w-8 h-8 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center hover:bg-opacity-75"
+          >
+            ✕
+          </button>
+        )}
+      </div>
     </div>
   );
 }
