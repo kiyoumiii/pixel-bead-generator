@@ -135,8 +135,10 @@ export function ParameterControls({
             step={5}
             value={gridSize[0]}
             onChange={(e) => {
-              const value = Math.min(100, Math.max(10, parseInt(e.target.value) || 10));
-              setGridSize([value]);
+              const value = parseInt(e.target.value) || 0;
+              if (!isNaN(value) && value >= 10 && value <= 100) {
+                setGridSize([value]);
+              }
             }}
             className="w-16 px-2 py-1 border rounded text-sm"
           />
@@ -166,8 +168,10 @@ export function ParameterControls({
             step={4}
             value={colorCount[0]}
             onChange={(e) => {
-              const value = Math.min(64, Math.max(4, parseInt(e.target.value) || 4));
-              setColorCount([value]);
+              const value = parseInt(e.target.value) || 0;
+              if (!isNaN(value) && value >= 4 && value <= 64) {
+                setColorCount([value]);
+              }
             }}
             className="w-16 px-2 py-1 border rounded text-sm"
           />
