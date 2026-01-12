@@ -1,4 +1,4 @@
-# 拼豆图纸生成器
+# 1pic2bean 拼豆图纸生成器
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
