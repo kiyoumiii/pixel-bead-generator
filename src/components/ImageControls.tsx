@@ -117,15 +117,30 @@ export function ParameterControls({
         <Label htmlFor="gridSize">
           格子大小: {gridSize[0]} x {gridSize[0]}
         </Label>
-        <Slider
-          id="gridSize"
-          min={10}
-          max={100}
-          step={5}
-          value={gridSize}
-          onValueChange={setGridSize}
-          className="w-full"
-        />
+        <div className="flex items-center gap-2">
+          <Slider
+            id="gridSize"
+            min={10}
+            max={100}
+            step={5}
+            value={gridSize}
+            onValueChange={setGridSize}
+            className="flex-1"
+          />
+          <input
+            type="number"
+            id="gridSizeInput"
+            min={10}
+            max={100}
+            step={5}
+            value={gridSize[0]}
+            onChange={(e) => {
+              const value = Math.min(100, Math.max(10, parseInt(e.target.value) || 10));
+              setGridSize([value]);
+            }}
+            className="w-16 px-2 py-1 border rounded text-sm"
+          />
+        </div>
         <p className="text-xs text-muted-foreground">
           控制图纸的格子数量，数值越大格子越多
         </p>
@@ -133,15 +148,30 @@ export function ParameterControls({
 
       <div className="space-y-2">
         <Label htmlFor="colorCount">颜色数量: {colorCount[0]}</Label>
-        <Slider
-          id="colorCount"
-          min={4}
-          max={64}
-          step={4}
-          value={colorCount}
-          onValueChange={setColorCount}
-          className="w-full"
-        />
+        <div className="flex items-center gap-2">
+          <Slider
+            id="colorCount"
+            min={4}
+            max={64}
+            step={4}
+            value={colorCount}
+            onValueChange={setColorCount}
+            className="flex-1"
+          />
+          <input
+            type="number"
+            id="colorCountInput"
+            min={4}
+            max={64}
+            step={4}
+            value={colorCount[0]}
+            onChange={(e) => {
+              const value = Math.min(64, Math.max(4, parseInt(e.target.value) || 4));
+              setColorCount([value]);
+            }}
+            className="w-16 px-2 py-1 border rounded text-sm"
+          />
+        </div>
         <p className="text-xs text-muted-foreground">
           控制使用的颜色数量，颜色越多细节越丰富
         </p>
