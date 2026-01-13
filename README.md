@@ -31,7 +31,7 @@
 ![上传图片](test-images/examples/screenshot-2.png)
 
 ### 生成效果示例
-![生成效果](test-images/gen-images/pixel-bead-pattern.png)
+![生成效果](test-images/examples/pixel-bead-pattern.png)
 
 ## 技术实现
 
