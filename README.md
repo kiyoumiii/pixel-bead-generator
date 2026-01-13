@@ -27,10 +27,10 @@
 ## 项目截图
 
 ### 初始化界面
-![初始化界面](test-images/gen-images/init-1.png)
+![初始化界面](test-images/examples/screenshot-1.png)
 
 ### 上传图片
-![上传图片](test-images/gen-images/upload-1.png)
+![上传图片](test-images/examples/screenshot-2.png)
 
 ### 生成效果示例
 ![生成效果1](test-images/gen-images/pixel-bead-pattern-1.png)
@@ -120,9 +120,3 @@ src/
 ## 贡献
 
 欢迎提交Issue和Pull Request来改进这个项目！
-
-## 联系方式
-
-如有问题或建议，请通过以下方式联系：
-- 提交Issue：https://github.com/kiyoumiii/pixel-bead-generator/issues
-- 发送邮件：kiyoumiii@example.com
