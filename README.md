@@ -26,12 +26,17 @@
 
 ## 项目截图
 
-### 上传图片
+### 初始化界面
 ![初始化界面](test-images/examples/screenshot-1.png)
+
+### 上传图片
 ![上传图片](test-images/examples/screenshot-2.png)
 
 ### 生成效果示例
-![生成效果](test-images/examples/pixel-bead-pattern.png)
+![生成效果1](test-images/gen-images/pixel-bead-pattern-1.png)
+![生成效果2](test-images/gen-images/pixel-bead-pattern-2.png)
+![生成效果3](test-images/gen-images/pixel-bead-pattern-3.png)
+![生成效果4](test-images/gen-images/pixel-bead-pattern.png)
 
 ## 技术实现
 
