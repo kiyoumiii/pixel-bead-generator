@@ -96,11 +96,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b" style={{ backgroundColor: 'hsl(var(--primary))' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#D5EAE3' }}>
+      <header className="border-b" style={{ backgroundColor: '#775C55' }}>
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold" style={{ color: 'hsl(var(--primary-foreground))' }}>🧩 拼豆图纸生成器</h1>
-          <p className="text-sm" style={{ color: 'hsl(var(--primary-foreground))' }}>
+          <h1 className="text-2xl font-bold" style={{ color: 'hsl(var(--foreground))' }}>🧩 拼豆图纸生成器</h1>
+          <p className="text-sm" style={{ color: 'hsl(var(--foreground))' }}>
             上传图片，生成拼豆、钻石画、十字绣图纸
           </p>
         </div>
@@ -110,14 +110,14 @@ function App() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* 左侧控制面板 */}
           <div className="space-y-6">
-            <div className="card bg-card border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+            <div className="card bg-[#FDD3D5] border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
               <h2 className="text-lg font-semibold mb-4" style={{ color: 'hsl(var(--foreground))' }}>上传图片</h2>
               <ImageUploader onImageLoad={handleImageLoad} />
             </div>
 
             {originalImage && (
               <>
-                <div className="card bg-card border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+                <div className="card bg-[#FDD3D5] border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
                   <h2 className="text-lg font-semibold mb-4" style={{ color: 'hsl(var(--foreground))' }}>参数设置</h2>
                   <ParameterControls
                     gridSize={gridSize}
@@ -131,7 +131,7 @@ function App() {
                   />
                 </div>
 
-                <div className="card bg-card border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+                <div className="card bg-[#FDD3D5] border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
                   <h2 className="text-lg font-semibold mb-4" style={{ color: 'hsl(var(--foreground))' }}>操作</h2>
                   <ActionButtons
                     onExport={handleExport}
@@ -154,7 +154,7 @@ function App() {
 
             {pixelData && (
               <>
-                <div className="card bg-card border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+                <div className="card bg-[#FDD3D5] border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
                   <h2 className="text-lg font-semibold mb-4" style={{ color: 'hsl(var(--foreground))' }}>图纸预览</h2>
                   <PixelGrid
                     pixels={pixelData.pixels}
@@ -164,14 +164,14 @@ function App() {
                   />
                 </div>
 
-                <div className="card bg-card border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+                <div className="card bg-[#FDD3D5] border rounded-lg p-6 shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
                   <ColorPalette symbolMap={pixelData.symbolMap} />
                 </div>
               </>
             )}
 
             {!originalImage && !isProcessing && (
-              <div className="card bg-card border rounded-lg p-12 text-center shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
+              <div className="card bg-[#FDD3D5] border rounded-lg p-12 text-center shadow-sm" style={{ borderColor: 'hsl(var(--border))' }}>
                 <p className="text-muted-foreground">
                   请先上传一张图片开始制作
                 </p>

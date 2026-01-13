@@ -57,7 +57,7 @@ export function ImageUploader({ onImageLoad }: ImageUploaderProps) {
   return (
     <div className="w-full">
       <div
-        className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+        className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors bg-[#F8F4E9] ${
           dragActive
             ? 'border-primary bg-primary/10'
             : 'border-muted-foreground/25 hover:border-primary/50'

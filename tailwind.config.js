@@ -60,11 +60,16 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
-  			// 橙黄色系配色
+  			// 新的粉色和绿色系配色
   			'host-tag': 'hsl(var(--host-tag))',
   			'guest-tag': 'hsl(var(--guest-tag))',
   			'status-success': 'hsl(var(--status-success))',
-  			'text-dark': 'hsl(var(--text-dark))'
+  			'text-dark': 'hsl(var(--text-dark))',
+  			// 绿色系配色
+  			'success': 'hsl(var(--success))',
+  			'success-foreground': 'hsl(var(--success-foreground))',
+  			'info': 'hsl(var(--info))',
+  			'info-foreground': 'hsl(var(--info-foreground))'
   		},
   		keyframes: {
   			'accordion-down': {
@@ -92,4 +97,3 @@ export default {
   },
   plugins: [import("tailwindcss-animate")],
 }
-

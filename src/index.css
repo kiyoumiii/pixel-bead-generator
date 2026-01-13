@@ -1,89 +1,99 @@
 @tailwind base;
-	@tailwind components;
-	@tailwind utilities;
-	@layer base {
+@tailwind components;
+@tailwind utilities;
+@layer base {
   :root {
-    /* 橙黄色系配色方案 */
-    --background: 20 100% 95%; /* #FFEDCC */
-    --foreground: 20 100% 20%; /* 深橙黄色 */
-    --card: 20 100% 98%; /* #FFF5E6 */
-    --card-foreground: 20 100% 20%;
-    --popover: 20 100% 98%;
-    --popover-foreground: 20 100% 20%;
-    --primary: 20 100% 60%; /* #FFB32A */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 20 100% 85%; /* #FFE5B4 */
-    --secondary-foreground: 20 100% 20%;
-    --muted: 20 100% 85%;
-    --muted-foreground: 20 100% 30%;
-    --accent: 20 100% 85%;
-    --accent-foreground: 20 100% 20%;
-    --destructive: 0 100% 40%; /* 红橙色 */
+    /* 新的粉色和绿色系配色方案 */
+    --background: 18 50% 95%; /* #F8F4E9 */
+    --foreground: 18 50% 20%; /* 深粉色 */
+    --card: 18 50% 98%; /* #FDD3D5 */
+    --card-foreground: 18 50% 20%;
+    --popover: 18 50% 98%;
+    --popover-foreground: 18 50% 20%;
+    --primary: 160 50% 60%; /* #D5EAE3 */
+    --primary-foreground: 18 50% 20%;
+    --secondary: 18 50% 85%; /* #FDD3D5 */
+    --secondary-foreground: 18 50% 20%;
+    --muted: 18 50% 85%; /* #FDD3D5 */
+    --muted-foreground: 18 50% 30%;
+    --accent: 18 50% 85%; /* #FDD3D5 */
+    --accent-foreground: 18 50% 20%;
+    --destructive: 350 100% 40%; /* 粉红色 */
     --destructive-foreground: 0 0% 100%;
-    --border: 20 100% 70%; /* #FFCC80 */
-    --input: 20 100% 70%;
-    --ring: 20 100% 60%; /* #FFB32A */
-    --chart-1: 20 100% 60%; /* #FFB32A */
-    --chart-2: 20 100% 50%; /* #FFD740 */
-    --chart-3: 20 100% 70%; /* #FFCC80 */
-    --chart-4: 20 100% 40%; /* 深橙色 */
-    --chart-5: 20 100% 80%; /* 浅橙色 */
+    --border: 18 50% 70%; /* #F8F4E9 */
+    --input: 18 50% 70%; /* #F8F4E9 */
+    --ring: 160 50% 60%; /* #D5EAE3 */
+    --chart-1: 160 50% 60%; /* #D5EAE3 */
+    --chart-2: 18 50% 50%; /* #F8F4E9 */
+    --chart-3: 18 50% 70%; /* #F8F4E9 */
+    --chart-4: 18 50% 40%; /* 深粉色 */
+    --chart-5: 18 50% 80%; /* #FDD3D5 */
     --radius: 0.5rem;
-    --sidebar-background: 20 100% 95%;
-    --sidebar-foreground: 20 100% 20%;
-    --sidebar-primary: 20 100% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 100% 85%;
-    --sidebar-accent-foreground: 20 100% 20%;
-    --sidebar-border: 20 100% 70%;
-    --sidebar-ring: 20 100% 60%;
-    /* 橙黄色系配色 */
-    --host-tag: 20 100% 50%; /* #FFD740 */
-    --guest-tag: 20 100% 40%; /* 深橙色 */
-    --status-success: 20 100% 70%; /* 浅橙色 */
-    --text-dark: 20 100% 20%; /* 深橙黄色 */
+    --sidebar-background: 18 50% 95%;
+    --sidebar-foreground: 18 50% 20%;
+    --sidebar-primary: 160 50% 60%;
+    --sidebar-primary-foreground: 18 50% 20%;
+    --sidebar-accent: 18 50% 85%;
+    --sidebar-accent-foreground: 18 50% 20%;
+    --sidebar-border: 18 50% 70%;
+    --sidebar-ring: 160 50% 60%;
+    /* 新配色方案 */
+    --host-tag: 18 50% 50%; /* #F8F4E9 */
+    --guest-tag: 18 50% 40%; /* 深粉色 */
+    --status-success: 160 50% 70%; /* #D5EAE3 */
+    --text-dark: 18 50% 20%; /* 深粉色 */
+    /* 绿色系配色 */
+    --success: 160 50% 80%; /* #D5EAE3 */
+    --success-foreground: 18 50% 20%;
+    --info: 18 50% 85%; /* #F8F4E9 */
+    --info-foreground: 18 50% 20%;
   }
   .dark {
-    --background: 20 100% 10%; /* 深橙黄色 */
-    --foreground: 20 100% 90%; /* 浅橙黄色 */
-    --card: 20 100% 15%;
-    --card-foreground: 20 100% 90%;
-    --popover: 20 100% 15%;
-    --popover-foreground: 20 100% 90%;
-    --primary: 20 100% 60%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 20 100% 25%;
-    --secondary-foreground: 20 100% 90%;
-    --muted: 20 100% 25%;
-    --muted-foreground: 20 100% 75%;
-    --accent: 20 100% 25%;
-    --accent-foreground: 20 100% 90%;
-    --destructive: 0 100% 40%;
+    --background: 18 50% 10%; /* 深粉色 */
+    --foreground: 18 50% 90%; /* 浅粉色 */
+    --card: 18 50% 15%;
+    --card-foreground: 18 50% 90%;
+    --popover: 18 50% 15%;
+    --popover-foreground: 18 50% 90%;
+    --primary: 160 50% 60%;
+    --primary-foreground: 18 50% 20%;
+    --secondary: 18 50% 25%;
+    --secondary-foreground: 18 50% 90%;
+    --muted: 18 50% 25%;
+    --muted-foreground: 18 50% 75%;
+    --accent: 18 50% 25%;
+    --accent-foreground: 18 50% 90%;
+    --destructive: 350 100% 40%;
     --destructive-foreground: 0 0% 100%;
-    --border: 20 100% 30%;
-    --input: 20 100% 30%;
-    --ring: 20 100% 60%;
-    --chart-1: 20 100% 60%;
-    --chart-2: 20 100% 50%;
-    --chart-3: 20 100% 70%;
-    --chart-4: 20 100% 40%;
-    --chart-5: 20 100% 80%;
-    --sidebar-background: 20 100% 10%;
-    --sidebar-foreground: 20 100% 90%;
-    --sidebar-primary: 20 100% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 20 100% 25%;
-    --sidebar-accent-foreground: 20 100% 90%;
-    --sidebar-border: 20 100% 30%;
-    --sidebar-ring: 20 100% 60%;
-    /* 橙黄色系配色 */
-    --host-tag: 20 100% 50%;
-    --guest-tag: 20 100% 40%;
-    --status-success: 20 100% 70%;
-    --text-dark: 20 100% 90%;
+    --border: 18 50% 30%;
+    --input: 18 50% 30%;
+    --ring: 160 50% 60%;
+    --chart-1: 160 50% 60%;
+    --chart-2: 18 50% 50%;
+    --chart-3: 18 50% 70%;
+    --chart-4: 18 50% 40%;
+    --chart-5: 18 50% 80%;
+    --sidebar-background: 18 50% 10%;
+    --sidebar-foreground: 18 50% 90%;
+    --sidebar-primary: 160 50% 60%;
+    --sidebar-primary-foreground: 18 50% 20%;
+    --sidebar-accent: 18 50% 25%;
+    --sidebar-accent-foreground: 18 50% 90%;
+    --sidebar-border: 18 50% 30%;
+    --sidebar-ring: 160 50% 60%;
+    /* 新配色方案 */
+    --host-tag: 18 50% 50%;
+    --guest-tag: 18 50% 40%;
+    --status-success: 160 50% 70%;
+    --text-dark: 18 50% 90%;
+    /* 绿色系配色 */
+    --success: 160 50% 80%;
+    --success-foreground: 18 50% 20%;
+    --info: 18 50% 85%;
+    --info-foreground: 18 50% 20%;
   }
 }
-	@layer base {
+@layer base {
   * {
     @apply border-border;
   }
@@ -91,4 +101,3 @@
     @apply bg-background text-foreground;
   }
 }
-	
